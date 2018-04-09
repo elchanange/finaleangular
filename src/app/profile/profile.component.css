@@ -1,0 +1,25 @@
+
+:host{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.p-picture {
+  margin-right: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  height: 100px;
+  width: 100px;
+}
+.p-head {
+  display: flex;
+}
+
+.p-mail{
+  margin-top: 0;
+}
+
+.spacer {
+  flex: 1 1 auto;
+}

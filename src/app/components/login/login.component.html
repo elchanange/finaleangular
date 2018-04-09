@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Login</h1>
+  <div [formGroup]="fg" class="container">
+    <mat-form-field>
+      <input matInput placeholder="Email" formControlName="email" required email>
+      <mat-error *ngIf="fg.controls.email.invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+      <mat-error *ngIf="fg.controls.password.invalid">Required</mat-error>
+    </mat-form-field>
+  </div>
+
+    <button color="primary" [disabled]="fg.status === 'INVALID'" (click)="login()" mat-raised-button>Login</button>
+
+
+    <div [style.margin]="'30px'">
+      <span> Got no user yet? <button (click)="goToSignup()" mat-button>Click here!</button></span>
+    </div>
+</div>
+<!--asdfasdf-->

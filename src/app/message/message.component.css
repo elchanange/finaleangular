@@ -1,0 +1,17 @@
+:host {
+  margin: 10px
+}
+.circle {
+  height: 50px;
+  object-fit: cover;
+  width: 50px;
+  border-radius: 50%;
+}
+.msg {
+  padding: 15px 15px 15px 15px;
+  margin: 0 20px;
+  background: lightgray;
+  box-shadow: 1px 0 6px 1px;
+  width: 500px;
+  overflow-wrap: break-word;
+}

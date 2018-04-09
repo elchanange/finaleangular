@@ -1,0 +1,17 @@
+.fastpost{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+app-fastpost{
+  display: flex;
+  flex-direction: column;
+  width: 60%;
+}
+
+.selectBox {
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 20%;
+}

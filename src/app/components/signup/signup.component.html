@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>{{isEdit? 'Edit Profile' : 'Signup'}}</h1>
+  <div *ngIf="isEdit && user" class="picContainer">
+    <img [src]="user.photoURL">
+  </div>
+  <div [formGroup]="fg">
+    <mat-form-field>
+      <input matInput placeholder="Nickname" formControlName="displayName" required>
+      <mat-error *ngIf="fg.controls.displayName.invalid">Required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!isEdit">
+      <input matInput placeholder="Email" formControlName="email" required email>
+      <mat-error *ngIf="fg.controls.email.invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="!isEdit">
+      <input matInput type="password" placeholder="Password" formControlName="password">
+      <mat-error *ngIf="fg.controls.password.invalid">Required</mat-error>
+    </mat-form-field>
+    <mat-form-field *ngIf="!isEdit">
+      <input matInput type="password" placeholder="Verify Password" formControlName="password2" required>
+      <mat-error *ngIf="fg.controls.password2.invalid">Required</mat-error>
+<!---->
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput formControlName="birthday" [matDatepicker]="picker" placeholder="When is your birthday?" required [max]="today">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <!--<mat-form-field>-->
+    <!--<input matInput [matDatepicker]="picker" placeholder="Choose a date">-->
+    <!--<mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+    <!--<mat-datepicker #picker></mat-datepicker>-->
+    <!--</mat-form-field>-->
+
+    <div>
+      Upload a profile picture
+      <input type="file" ([ngModel])="file" (change)="fileChanges($event)" multiple>
+    </div>
+
+
+    <h3 *ngIf="error" class="danger">{{error}}</h3>
+  </div>
+  <div style="display: flex; margin-top: 10px;">
+    <button class="padding" mat-raised-button color="primary" [disabled]="fg.status === 'INVALID'" (click)="register()">
+      {{isEdit? 'Save' : 'Signup'}}
+    </button>
+    <button class="padding" mat-raised-button color="accent" *ngIf="isEdit" (click)="changePassword()">Change Password</button>
+  </div>
+
+</div>
+
+<!--asasdasdasd-->

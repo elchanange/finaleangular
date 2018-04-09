@@ -1,0 +1,33 @@
+.example-icon {
+  padding: 0 14px;
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}
+
+.relative {
+  position: relative;
+  margin-right: 30px;
+  cursor: pointer;
+}
+
+.badgey {
+  position: absolute;
+  background: red;
+  border-radius: 50%;
+  font-size: 14px;
+  height: 14px;
+  width: 14px;
+  top: -5px;
+  right: -8px;
+  line-height: 12px;
+  text-align: center;
+  margin-left: 0;
+  overflow: hidden;
+}
+
+.clicked {
+  font-weight: bold;
+  font-size: 18px;
+}

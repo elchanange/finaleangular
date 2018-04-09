@@ -1,0 +1,19 @@
+<div>
+  <mat-card class="example-card">
+    <mat-card-header (click)="goToProfile()">
+      <img mat-card-avatar src="{{content.photoURL || 'assets/img/unknown.jpg'}}">
+      <mat-card-title>{{content.displayName}}</mat-card-title>
+      <mat-card-subtitle>{{content.date | beforeNow}}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content style="text-align: center;">
+      <h3>{{content.headline}}</h3>
+      <p style="overflow-wrap: break-word;">
+        {{content.message}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="like()" *ngIf="enableLike" [disabled]="myPost"><mat-chip>{{likes}}</mat-chip> <mat-icon class="hands unmarked"></mat-icon></button>
+      <button mat-button (click)="dislike()" *ngIf="!enableLike" class="blue" [disabled]="myPost"><mat-chip>{{likes}}</mat-chip> <mat-icon class="hands marked"></mat-icon></button>
+    </mat-card-actions>
+  </mat-card>
+</div>

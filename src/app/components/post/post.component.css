@@ -1,0 +1,24 @@
+.example-card {
+  margin: 10px;
+}
+
+.hands {
+  background: url('assets/img/hands.ico');
+  height: 24px;
+  width: 24px;
+}
+
+.unmarked {
+  opacity: 0.3;
+}
+.blue {
+  color: darkcyan;
+}
+
+button:not(.blue){
+  color: lightgray;
+}
+
+.mat-card-title {
+  margin-bottom: 8px;
+}

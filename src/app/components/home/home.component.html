@@ -1,0 +1,29 @@
+<div *ngIf="!loading">
+  <div class="fastpost" [style.margin]="'30px'">
+    <app-fastpost></app-fastpost>
+  </div>
+  <h1 [style.text-align]="'center'">Posts List</h1>
+  <div *ngIf="posts.length > 0">
+    <div class="selectBox">
+      <mat-form-field>
+        <mat-select placeholder="Sort Posts by:" (change)="reorderPosts($event)" [(ngModel)]="sortPostsBy">
+          <mat-option *ngFor="let sort of sorts" [value]="sort.value">
+            {{ sort.text }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div style="width: 60%; margin: 0 20%">
+      <app-post *ngFor="let post of posts" [content]="post" [style.margin]="'10px'"></app-post>
+    </div>
+  </div>
+  <div *ngIf="posts.length === 0">
+    <h1>No posts :(</h1>
+  </div>
+</div>
+<div *ngIf="loading" style="height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;">
+  <mat-spinner></mat-spinner>
+</div>

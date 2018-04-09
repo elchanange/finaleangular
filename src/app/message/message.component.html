@@ -1,0 +1,6 @@
+<div class="chatContainer" style="display: flex;" (click)="openDialog()">
+  <img [src]="data.sender.photoURL || 'assets/img/unknown.jpg'" class="circle">
+  <div class="msg"><span style="font-weight: bold">{{data.sender.displayName}}:</span> {{data.msg}}</div>
+</div>
+
+<!--<img [src]="data.sender.photoURL">-->

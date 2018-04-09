@@ -1,0 +1,30 @@
+<!--<div>-->
+  <!--{{userProfile | json}}-->
+<!--</div>-->
+<div *ngIf="!loading" style="height: 500px;">
+<div class="spacer"></div>
+<div class="p-head">
+  <img class="p-picture" [src]="userProfile.photoURL || 'assets/img/unknown.jpg'">
+  <div>
+    <h1 class="p-name">{{userProfile.displayName}}</h1>
+    <h3 class="p-mail">{{userProfile.email}}</h3>
+  </div>
+</div>
+<div style="text-align: center;">
+  <span>Popularity: {{userProfile.views || 0}}</span>
+  <span style="margin-left: 15px;">Age: {{age}}</span>
+</div>
+<div style="text-align: center; margin-top: 10px;">
+  <button *ngIf="!mePage" mat-raised-button color="primary" (click)="openDialog()">
+    Send message to {{userProfile.displayName}}
+  </button>
+  <button *ngIf="mePage" mat-raised-button color="primary" (click)="goToEdit()">
+    Edit Your Profile
+  </button>
+</div>
+<div class="spacer"></div>
+<div class="postsBox">
+  <app-posts-container [uid]="userProfile.uid"></app-posts-container>
+</div>
+</div>
+<mat-spinner *ngIf="loading"></mat-spinner>

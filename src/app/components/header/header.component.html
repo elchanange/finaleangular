@@ -1,0 +1,24 @@
+<mat-toolbar color="primary" id="mainToolbar">
+  <mat-toolbar-row *ngIf="!authSvc.loading">
+    <div *ngIf="!authSvc.user">
+    <button mat-button [ngClass]="router.url === '/signup' ? 'clicked' : ''" (click)="goTo('/signup')">Sign Up</button>
+    <button mat-button [ngClass]="router.url === '/login' ? 'clicked' : ''" (click)="goTo('/login')">Login</button>
+    <button mat-button [ngClass]="router.url === '/about' ? 'clicked' : ''" (click)="goTo('/about')">About us</button>
+    </div>
+    <div *ngIf="authSvc.user">
+      <button mat-button [ngClass]="router.url === '/' ? 'clicked' : ''" (click)="goTo('/')">Home</button>
+      <button mat-button [ngClass]="router.url === '/posts/me' ? 'clicked' : ''" (click)="goTo('/posts/me')">My Posts</button>
+      <!--<button mat-button (click)="goTo('/posts/new')">Write Post</button>-->
+    </div>
+    <span class="example-spacer"></span>
+    <div [style.cursor]="'pointer'" (click)="goTo('/')"><img [style.height]="'56px'" src="assets/img/logo.png"></div>
+    <span class="example-spacer"></span>
+    <div class="relative" (click)="redirectAndStopNotifications()" *ngIf="authSvc.user">
+      <mat-icon>message</mat-icon>
+      <span class="badgey" *ngIf="authSvc.user.notifications">{{authSvc.user.notifications}}</span>
+    </div>
+    <app-user-details *ngIf="!authSvc.loading" style="cursor: pointer;"></app-user-details>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+

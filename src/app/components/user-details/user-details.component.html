@@ -1,0 +1,5 @@
+<div *ngIf="!auth.loading">
+  <span (click)="goToLogin()">Hello {{displayName || Guest}}</span>
+  <img [src]="userPhoto || 'assets/img/unknown.jpg'" class="thumbnail">
+  <mat-icon *ngIf="auth.user" (click)="disconnect()">exit_to_app</mat-icon>
+</div>

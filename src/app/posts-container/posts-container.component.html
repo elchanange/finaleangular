@@ -1,0 +1,18 @@
+<div *ngIf="posts">
+<div class="selectBox" *ngIf="posts && posts.length !== 0">
+  <mat-form-field>
+    <mat-select placeholder="Sort Posts by:" (change)="reorderPosts($event)" [(ngModel)]="sortPostsBy">
+      <mat-option *ngFor="let sort of sorts" [value]="sort.value">
+        {{ sort.text }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
+<div style="width: 100%">
+  <app-post *ngFor="let post of posts" [content]="post" [style.margin]="'10px'"></app-post>
+</div>
+
+<div *ngIf="!posts || posts.length === 0">
+  <h1> No Posts... </h1>
+</div>
+</div>
